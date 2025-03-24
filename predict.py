@@ -35,6 +35,10 @@ def process_img(image):
     return img_bat
 
 router = APIRouter()
+@router.get('/')
+async def hello():
+    return "hello"
+
 
 @router.post('/predict')
 async def predict(file: UploadFile = File(...)):  # ⚠️ Dùng File(...) thay vì File(None)
