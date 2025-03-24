@@ -6,12 +6,12 @@ import numpy as np
 from fastapi import FastAPI, File, UploadFile, APIRouter, Form
 from PIL import Image
 from io import BytesIO
+os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
 import tensorflow as tf
 
-# Định nghĩa đường dẫn model
+
 model_path = os.path.join(os.path.dirname(__file__), "artifacts", "ga_model.pkl")
 
-# Kiểm tra model tồn tại không
 if not os.path.exists(model_path):
     raise FileNotFoundError(f"Không tìm thấy model tại {model_path}")
 
